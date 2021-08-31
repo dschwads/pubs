@@ -10,24 +10,27 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-     name: redis
-     role: redisdb
-     app: example-voting-app
+      name: redis
+      role: redisdb
+      app: example-voting-app
   template:
     spec:
       containers:
-        - name: redis
-          image: redis:alpine
-          resources:
-            limits:
-              memory: 64Mi
-            requests:
-              memory: 32Mi
+      - name: redis
+        image: redis:alpine
+        resources:
+          limits:
+            memory: 64Mi
+          requests:
+            memory: 32Mi
+        securityContext:
+          allowPrivilegeEscalation: false
     metadata:
       labels:
         name: redis
         role: redisdb
         app: example-voting-app
+
 ---
 apiVersion: v1
 kind: Service
