@@ -25,7 +25,7 @@ spec:
               value: "5"
           resources:
             limits:
-              memory: 64Mi
+              memory: 32Mi
             requests:
               memory: 32Mi
     metadata:
